@@ -1,4 +1,4 @@
-# client
+# ChenpionPMS-Client
 
 ## Project setup
 ```
