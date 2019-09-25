@@ -1,14 +1,11 @@
 module.exports = {
   root: true,
-
   env: {
     browser: true,
     es6: true,
     node: true,
   },
-
   extends: ['eslint:recommended', 'plugin:vue/strongly-recommended'],
-
   overrides: [
     {
       files: ['*.vue'],
@@ -25,15 +22,12 @@ module.exports = {
       },
     },
   ],
-
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: 'babel-eslint',
     sourceType: 'module',
   },
-
   plugins: ['import'],
   root: true,
-
   rules: {
     'arrow-parens': [2, 'always'],
     'comma-dangle': [2, 'always-multiline'],
@@ -144,14 +138,7 @@ module.exports = {
       },
     ],
   },
-
   settings: {
     'import/resolver': 'webpack',
   },
-
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/strongly-recommended',
-    '@vue/typescript'
-  ]
 };
