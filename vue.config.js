@@ -1,6 +1,6 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const isDevBuild = process.env.NODE_ENV == 'development';
+const isDevBuild = process.env.NODE_ENV === 'development';
 
 // 文件: https://cli.vuejs.org/zh/config/
 module.exports = {
@@ -71,10 +71,16 @@ module.exports = {
   // 第三方插件配置
   pluginOptions: {
     i18n: {
-      locale: process.env.VUE_APP_I18N_LOCALE || 'zh-TW',
-      fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'zh-TW',
+      locale: 'zh-TW',
+      fallbackLocale: 'zh-TW',
       localeDir: 'locales',
       enableInSFC: true,
+    },
+    moment: {
+      locales: [
+        'zh-tw',
+        'en',
+      ],
     },
   },
 };

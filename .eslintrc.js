@@ -22,6 +22,7 @@ module.exports = {
       },
     },
   ],
+
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module',
@@ -29,53 +30,63 @@ module.exports = {
   plugins: ['import'],
   root: true,
   rules: {
-    'arrow-parens': [2, 'always'],
-    'comma-dangle': [2, 'always-multiline'],
-    curly: [2, 'all'],
+    'arrow-parens': [
+      2,
+      'always'
+    ],
+    'comma-dangle': [
+      2,
+      'always-multiline'
+    ],
+    curly: [
+      2,
+      'all'
+    ],
     indent: [
       2,
-      2,
-      {
-        SwitchCase: 1,
-        VariableDeclarator: {
-          const: 3,
-          let: 2,
-          var: 2,
-        },
-      },
+      2
     ],
     'newline-per-chained-call': [
       2,
       {
-        ignoreChainWithDepth: 2,
-      },
+        ignoreChainWithDepth: 2
+      }
     ],
-    'no-console': 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-trailing-spaces': 2,
     'no-unused-vars': [
       1,
       {
         args: 'after-used',
         ignoreRestSiblings: false,
-        vars: 'all',
-      },
+        vars: 'all'
+      }
     ],
-    'object-curly-spacing': [2, 'always'],
+    'object-curly-spacing': [
+      2,
+      'always'
+    ],
     'object-property-newline': [
       2,
       {
-        allowAllPropertiesOnSameLine: false,
-      },
+        allowAllPropertiesOnSameLine: false
+      }
     ],
     quotes: [
       2,
       'single',
       {
-        allowTemplateLiterals: true,
-      },
+        allowTemplateLiterals: true
+      }
     ],
-    semi: [2, 'always'],
-    'space-before-function-paren': [2, 'never'],
+    semi: [
+      2,
+      'always'
+    ],
+    'space-before-function-paren': [
+      2,
+      'never'
+    ],
     'vue/attributes-order': [
       2,
       {
@@ -89,27 +100,30 @@ module.exports = {
           'BINDING',
           'OTHER_ATTR',
           'EVENTS',
-          'CONTENT',
-        ],
-      },
+          'CONTENT'
+        ]
+      }
     ],
     'vue/html-closing-bracket-newline': [
       2,
       {
         multiline: 'always',
-        singleline: 'never',
-      },
+        singleline: 'never'
+      }
     ],
-    'vue/html-self-closing': [0, 'never'],
+    'vue/html-self-closing': [
+      0,
+      'never'
+    ],
     'vue/max-attributes-per-line': [
       2,
       {
         multiline: {
           allowFirstLine: true,
-          max: 1,
+          max: 1
         },
-        singleline: 1,
-      },
+        singleline: 1
+      }
     ],
     'vue/no-confusing-v-for-v-if': 2,
     'vue/order-in-components': [
@@ -120,25 +134,45 @@ module.exports = {
           'name',
           'parent',
           'functional',
-          ['delimiters', 'comments'],
-          ['components', 'directives', 'filters'],
+          [
+            'delimiters',
+            'comments'
+          ],
+          [
+            'components',
+            'directives',
+            'filters'
+          ],
           'extends',
           'mixins',
           'inheritAttrs',
           'model',
-          ['props', 'propsData'],
+          [
+            'props',
+            'propsData'
+          ],
           'data',
           'computed',
           'watch',
           'LIFECYCLE_HOOKS',
           'methods',
-          ['template', 'render'],
-          'renderError',
-        ],
-      },
+          [
+            'template',
+            'render'
+          ],
+          'renderError'
+        ]
+      }
     ],
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   settings: {
     'import/resolver': 'webpack',
   },
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/strongly-recommended',
+    'plugin:vue/essential',
+    '@vue/airbnb'
+  ]
 };
