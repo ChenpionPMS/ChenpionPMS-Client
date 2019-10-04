@@ -1,9 +1,7 @@
 pipeline {
 
   agent {
-    docker {
-      image 'node'
-    }
+    label "jenkins-nodejs"
   }
   stages {
     stage('Clone Sources') {
@@ -19,7 +17,7 @@ pipeline {
     }
     stage('Dependencies') {
       steps {
-        sh 'npm install'
+        sh 'npm ci'
       }
     }
     stage('Build') {
