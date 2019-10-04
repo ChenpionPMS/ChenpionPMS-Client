@@ -57,7 +57,7 @@ module.exports = {
     // 設置代理
     proxy: {
       '/api': {
-        target: process.env.VUE_APP_API_SERVER,
+        target: process.env.VUE_APP_API_ENDPOINT,
         ws: true,
         changeOrigin: true,
       },
